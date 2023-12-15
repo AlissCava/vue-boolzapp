@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="style.css">
-    <title>WhatsApp Web Replica</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Vue Boolzapp</title>
 </head>
 <body>
-
-    <main>
-        <div class="container">
+    <div id="app">
+        <main>
+          <div class="container">
             <div class="col1 contactspace">
-                <div class="upPersonaProfile"></div>
+              <div class="upSpace"></div>
+              <div v-for="contact in contacts" :key="contact.name" class="contact" @click="selectContact(contact)">
+                <img :src="contact.avatar" :alt="contact.name" class="avatar" />
+                <span>{{ contact.name }}</span>
+              </div>
             </div>
             <div class="col2 chatspace">
-                <div class="writeSpace"></div>
+              <div class="upSpace"></div>
+              <div class="chat">
+                <div v-if="selectedContact" class="message" v-for="message in selectedContact.messages" :key="message.date" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
+                    <span>{{ message.message }}</span>
+                  </div>
+                  <div class="writeSpace"></div>
+              </div>
+             
             </div>
-        </div>
-    </main>
+          </div>
+        </main>
+        <footer></footer>
+      </div>
+      
 
-    <footer>
-
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-e8pC2tjkfRww+d+P1Jw8dLT+00C5/cFVJ9+FAtv60iC2O2jk4wQbhojTpgwLVEHO" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
