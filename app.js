@@ -170,11 +170,14 @@ const app = createApp({
       selectedContact: null,
     };
   },
+
   methods: {
+    // Metodo per selezionare un contatto
     selectContact(contact) {
       this.selectedContact = contact;
     },
   },
 });
 
+// Montaggio dell'app Vue al nodo con l'id "app" nell'HTML
 app.mount('#app');

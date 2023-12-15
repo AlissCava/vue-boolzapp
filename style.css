@@ -1,101 +1,115 @@
+/* Reset dello stile predefinito del body */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif; /* Utilizzo del font Arial o sans-serif se non disponibile */
+    background-color: #f5f5f5; /* Colore di sfondo del body */
   }
   
+  /* Stile per il contenitore principale della pagina */
   .container {
-    display: flex;
+    display: flex; /* Utilizza il layout flessibile */
     width: 100%;
     height: 100vh; /* Altezza piena della viewport */
   }
   
+  /* Stile per lo spazio dedicato ai contatti nella colonna sinistra */
   .contactspace {
-    flex: 3;
-    background-color: #fff;
-    overflow-y: auto; /* Aggiunta scrollbar se necessario */
+    flex: 3; /* Utilizza il 30% della larghezza totale della viewport */
+    background-color: #fff; /* Sfondo bianco */
+    overflow-y: auto; /* Aggiunge una scrollbar se necessario */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombra sulla destra */
   }
   
+  /* Stile di base per i contatti */
   .contact {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  
-    &hover {
-      background-color: #e0e0e0;
-    }
-  
-    img {
-      border-radius: 50%;
-      margin-right: 10px;
-      width: 40px;
-      height: 40px;
-    }
-  
-    span {
-      font-weight: bold;
-    }
+    display: flex; /* Utilizza il layout flessibile */
+    align-items: center; /* Centra verticalmente gli elementi */
+    padding: 10px; /* Spazio interno di 10px */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+    transition: background-color 0.3s ease; /* Animazione del cambio di colore durante l'hover */
   }
   
+  /* Stile durante l'hover sui contatti */
+  .contact:hover {
+    background-color: #e0e0e0; /* Cambia il colore di sfondo durante l'hover */
+  }
+  
+  /* Stile per l'avatar dei contatti */
+  .avatar {
+    border-radius: 50%; /* Bordo arrotondato per creare una forma circolare */
+    margin-right: 10px; /* Margine a destra per separare l'avatar dal testo */
+    width: 40px; /* Larghezza dell'avatar */
+    height: 40px; /* Altezza dell'avatar */
+    object-fit: cover; /* Aggiunto per gestire la dimensione e la forma dell'immagine */
+  }
+  
+  /* Stile per il nome dei contatti */
+  span {
+    font-weight: bold; /* Testo in grassetto */
+  }
+  
+  /* Stile per lo spazio dedicato alla conversazione nella colonna destra */
   .chatspace {
-    flex: 9;
-    background-color: #fafafa;
-    overflow-y: auto; /* Aggiunta scrollbar se necessario */
+    flex: 9; /* Utilizza il 90% della larghezza totale della viewport */
+    background-color: #fafafa; /* Sfondo grigio chiaro */
+    overflow-y: auto; /* Aggiunge una scrollbar se necessario */
   }
   
+  /* Stile per i messaggi nella conversazione */
   .message {
-    padding: 10px;
-    margin-bottom: 10px;
-    max-width: 70%;
-    border-radius: 8px;
-    word-wrap: break-word;
+    padding: 10px; /* Spazio interno di 10px */
+    margin-bottom: 10px; /* Margine inferiore di 10px */
+    max-width: 70%; /* Larghezza massima del 70% del contenitore padre */
+    border-radius: 8px; /* Bordo arrotondato per i messaggi */
+    word-wrap: break-word; /* Gestisce il wrapping delle parole lunghe */
   
     &.sent {
-      background-color: #DCF8C6;
-      align-self: flex-end;
+      background-color: #DCF8C6; /* Colore di sfondo per i messaggi inviati */
+      align-self: flex-end; /* Allinea a destra il messaggio inviato */
     }
   
     &.received {
-      background-color: #fff;
-      align-self: flex-start;
+      background-color: #fff; /* Colore di sfondo per i messaggi ricevuti */
+      align-self: flex-start; /* Allinea a sinistra il messaggio ricevuto */
     }
   }
   
+  /* Spazio superiore */
   .upSpace {
-    height: 10px;
+    height: 10px; /* Altezza di 10px */
   }
   
+  /* Spazio per scrivere i messaggi nella parte inferiore della pagina */
   .writeSpace {
-    height: 50px;
-    width: 100%;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 10px;
+    height: 50px; /* Altezza di 50px */
+    width: 100%; /* Larghezza del 100% del contenitore padre */
+    background-color: #fff; /* Sfondo bianco */
+    display: flex; /* Utilizza il layout flessibile */
+    align-items: center; /* Centra verticalmente gli elementi */
+    padding: 0 10px; /* Spaziatura interna 0 su i lati e 10px sopra e sotto */
   
     input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 8px;
-      border-radius: 5px;
-      margin-right: 10px;
+      flex: 1; /* Usa tutto lo spazio disponibile */
+      border: none; /* Nessun bordo */
+      outline: none; /* Nessun bordo quando è in focus */
+      padding: 8px; /* Spaziatura interna di 8px */
+      border-radius: 5px; /* Bordo arrotondato */
+      margin-right: 10px; /* Margine a destra di 10px */
     }
   
     button {
-      background-color: #25D366;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      cursor: pointer;
+      background-color: #25D366; /* Colore di sfondo per il pulsante */
+      color: #fff; /* Colore del testo bianco */
+      border: none; /* Nessun bordo */
+      padding: 8px 12px; /* Spaziatura interna */
+      border-radius: 5px; /* Bordo arrotondato */
+      cursor: pointer; /* Cambia il cursore al passaggio del mouse */
     }
   }
-.chat{
-    margin-top: 90%;
-}
+  
+  /* Stile per il blocco della chat */
+  .chat {
+    margin-top: 90%; /* Margine superiore del 90% rispetto al contenitore padre */
+  }
   
