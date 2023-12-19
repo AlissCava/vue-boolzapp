@@ -90,15 +90,12 @@ span {
 
 /* Spazio superiore */
 .upSpace {
+    display: flex;
+    justify-content: space-between;
     border: 1px solid lightgray ;
     background-color: #fff;
     height: 80px; /* Altezza di 10px */
     align-items: center;
-}
-
-.upSpaceFLex{
-    display: flex;
-    justify-content: space-between;
 }
 
 .upSpaceXS{
