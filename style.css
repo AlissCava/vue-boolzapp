@@ -33,7 +33,7 @@ body {
 
 /* Stile durante l'hover sui contatti */
 .contact:hover {
-    background-color: #e0e0e0; /* Cambia il colore di sfondo durante l'hover */
+    background-color: #c2c2c2; /* Cambia il colore di sfondo durante l'hover */
 }
 
 /* Stile per l'avatar dei contatti */
@@ -57,33 +57,80 @@ span {
     overflow-y: auto; /* Aggiunge una scrollbar se necessario */
 }
 
+.lastAccess{
+    margin-top: -2px;
+    color: #8d8c8c;
+}
+
 /* Stile per i messaggi nella conversazione */
 .message {
+    max-width: 80%; /* Imposta la larghezza massima del messaggio */
+    margin-bottom: 10px; /* Aggiunge un margine inferiore per separare i messaggi */
+  }
+  
+.sent {
+    margin-top: 5px;
+    margin-bottom: 5px;
     padding: 10px;
-    margin-bottom: 10px;
-    max-width: 70%;
-    border-radius: 8px;
-    word-wrap: break-word;
+    background-color: #d4ffd5; /* Colore di sfondo per i messaggi inviati */
+    color: rgb(0, 0, 0); /* Colore del testo per i messaggi inviati */
+    border-radius: 10px; /* Aggiunge un bordo arrotondato */
+    float: right; /* Allinea a destra */
+    clear: both; /* Assicura che ogni messaggio venga visualizzato su una nuova riga */
 }
 
-.message.sent {
-    background-color: #DCF8C6;
-    align-self: flex-end; /* Allinea a destra */
-}
-
-.message.received {
-    background-color: #fff;
-    align-self: flex-start; /* Allinea a sinistra */
+.received {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #f1f1f1; /* Colore di sfondo per i messaggi ricevuti */
+    border-radius: 10px; /* Aggiunge un bordo arrotondato */
+    float: left; /* Allinea a sinistra */
+    clear: both; /* Assicura che ogni messaggio venga visualizzato su una nuova riga */
 }
 
 /* Spazio superiore */
 .upSpace {
-    height: 30px; /* Altezza di 10px */
     border: 1px solid lightgray ;
+    background-color: #fff;
+    height: 80px; /* Altezza di 10px */
+    align-items: center;
+}
+
+.upSpaceFLex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.upSpaceXS{
+    font-size: 20px;
+    text-align: center;
+}
+
+.fa-magnifying-glass, .fa-paperclip, .fa-ellipsis-vertical, .fa-circle, .fa-message{
+    padding: 5px;
+}
+
+.searchSpace{
+    border: 1px solid lightgray ;
+    height: 30px;
+}
+
+.inputForSearch{
+    border: transparent;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.inputForSearch:hover{
+    background-color: #bebebe;
 }
 
 /* Spazio per scrivere i messaggi nella parte inferiore della pagina */
 .writeSpace {
+    border: 1px solid lightgray ;
+    justify-content: space-around;
     height: 50px; /* Altezza di 50px */
     width: 100%; /* Larghezza del 100% del contenitore padre */
     background-color: #fff; /* Sfondo bianco */
@@ -92,7 +139,8 @@ span {
     padding: 0 10px; /* Spaziatura interna 0 su i lati e 10px sopra e sotto */
 
 input {
-    flex: 1; /* Usa tutto lo spazio disponibile */
+    width: 70%;
+    background-color: #e6e6e6;
     border: none; /* Nessun bordo */
     outline: none; /* Nessun bordo quando è in focus */
     padding: 8px; /* Spaziatura interna di 8px */

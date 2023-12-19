@@ -7,10 +7,17 @@ const app = createApp({
   data() {
     return {
       // Array di contatti con informazioni su ciascun contatto
+
+      myProfile: {
+        name: 'mio profilo',
+        avatar: 'img/avatar_io.jpg', 
+      },
+
       contacts: [
         {
           name: 'Michele',
           avatar: 'img/avatar_1.jpg',
+          lastAccess: '14 minutes ago',
           visible: true,
           messages: [
             {
@@ -33,6 +40,7 @@ const app = createApp({
         {
           name: 'Fabio',
           avatar: 'img/avatar_2.jpg',
+          lastAccess: '120 minutes ago', 
           visible: true,
           messages: [
             {
@@ -55,6 +63,7 @@ const app = createApp({
         {
           name: 'Samuele',
           avatar: 'img/avatar_3.jpg',
+          lastAccess: '30 minutes ago', 
           visible: true,
           messages: [
             {
@@ -77,6 +86,7 @@ const app = createApp({
         {
           name: 'Alessandro B.',
           avatar: 'img/avatar_4.jpg',
+          lastAccess: '20 minutes ago', 
           visible: true,
           messages: [
             {
@@ -94,6 +104,7 @@ const app = createApp({
         {
           name: 'Alessandro L.',
           avatar: 'img/avatar_5.jpg',
+          lastAccess: '10 minutes ago',
           visible: true,
           messages: [
             {
@@ -111,6 +122,7 @@ const app = createApp({
         {
           name: 'Claudia',
           avatar: 'img/avatar_6.jpg',
+          lastAccess: '130 minutes ago',
           visible: true,
           messages: [
             {
@@ -133,6 +145,7 @@ const app = createApp({
         {
           name: 'Federico',
           avatar: 'img/avatar_7.jpg',
+          lastAccess: '230 minutes ago', 
           visible: true,
           messages: [
             {
@@ -150,6 +163,7 @@ const app = createApp({
         {
           name: 'Davide',
           avatar: 'img/avatar_8.jpg',
+          lastAccess: '10 minutes ago',
           visible: true,
           messages: [
             {

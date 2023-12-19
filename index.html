@@ -2,8 +2,9 @@
 <html>
 <head>
   <!-- Collegamento al foglio di stile CSS -->
+  <link rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-
   <!-- Titolo della pagina -->
   <title>Vue Boolzapp</title>
 </head>
@@ -14,43 +15,75 @@
       <!-- Contenitore flessibile con due colonne -->
       <div class="container">
         <!-- Colonna 1: Spazio per i contatti -->
+
         <div class="col1 contactspace">
           <!-- Spazio superiore nella colonna dei contatti -->
-          <div class="upSpace"></div>
-
-          <!-- Input per la ricerca utenti -->
-          <input v-model="searchQuery" placeholder="Search contacts...">
-
-          <!-- Loop attraverso i contatti filtrati -->
-          <div v-for="contact in filteredContacts" :key="contact.name" class="contact" @click="selectContact(contact)">
-            <!-- Immagine dell'avatar del contatto -->
-            <img :src="contact.avatar" :alt="contact.name" class="avatar" />
-            <!-- Nome del contatto -->
-            <span>{{ contact.name }}</span>
+          <div class="upSpace upSpaceFLex">
+            <!-- Scheda del profilo -->
+            <div class="profile-tab">
+              <!-- Immagine dell'avatar del profilo -->
+              <img :src="myProfile.avatar" :alt="myProfile.name" class="avatar" />
+              <!-- Nome del profilo -->
+              <span>{{ myProfile.name }}</span>
+            </div>
           </div>
+
+          <div class="searchSpace">
+            <!-- Input per la ricerca utenti -->
+            <input class="inputForSearch" v-model="searchQuery" placeholder="Search contacts...">
+
+            <!-- Loop attraverso i contatti filtrati -->
+            <div v-for="contact in filteredContacts" :key="contact.name" class="contact" @click="selectContact(contact)">
+              <!-- Immagine dell'avatar del contatto -->
+              <img :src="contact.avatar" :alt="contact.name" class="avatar" />
+              <!-- Nome del contatto -->
+              <span>{{ contact.name }}</span>
+            </div>
+         </div>
         </div>
 
+        
         <!-- Colonna 2: Spazio per la conversazione -->
         <div class="col2 chatspace">
-          <!-- Spazio superiore nella colonna della conversazione -->
-          <div class="upSpace"></div>
+
+          <div class="upSpace upSpaceFLex">
+            <div class="upSpaceXD">
+              <div v-if="selectedContact" class="contact-summary">
+                <!-- Immagine dell'avatar dell'interlocutore -->
+                <img :src="selectedContact.avatar" :alt="selectedContact.name" class="avatar" />
+                <!-- Nome dell'interlocutore -->
+                <span>{{ selectedContact.name }}</span>
+                <!-- Ultimo accesso dell'interlocutore -->
+                <p class="lastAccess">Last access: {{ selectedContact.lastAccess }}</p>
+              </div>
+            </div>
+
+            <div class="upSpaceXS">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+            
+          </div>
 
           <!-- Contenitore della conversazione -->
           <div class="chat">
             <!-- Mostra i messaggi se un contatto è selezionato -->
-            <div v-if="selectedContact" class="message" v-for="message in selectedContact.messages" :key="message.date" :class="{ 'sent': message.status === 'sent', 'received': message.status === 'received' }">
-                <span>{{ message.message }}</span>
+           <!-- Mostra i messaggi se un contatto è selezionato -->
+            <div v-if="selectedContact" class="message" v-for="message in selectedContact.messages" :key="message.date">
+              <span :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}">{{ message.message }}</span>
             </div>
-            <!-- Spazio per scrivere i messaggi -->
+                        <!-- Spazio per scrivere i messaggi -->
             <div class="writeSpace">
-              <input v-model="newMessage" @keyup.enter="addMessage" placeholder="Type a message...">
+
+              <i class="fa-regular fa-face-smile"></i>
+              <input class="writeHere" v-model="newMessage" @keyup.enter="addMessage" placeholder="Type a message...">
               <button @click="addMessage">Send</button>
             </div>
           </div>
         </div>
       </div>
     </main>
-
     <!-- Footer dell'app -->
     <footer></footer>
   </div>
