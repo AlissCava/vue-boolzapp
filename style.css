@@ -106,6 +106,14 @@ span {
     text-align: center;
 }
 
+.upSpaceCol2{
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    z-index: 10;
+    width: 75%;
+}
+
 .fa-magnifying-glass, .fa-paperclip, .fa-ellipsis-vertical, .fa-circle, .fa-message{
     padding: 5px;
 }
