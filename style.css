@@ -18,7 +18,6 @@ body {
     flex: 3; /* Utilizza il 30% della larghezza totale della viewport */
     background-color: #fff; /* Sfondo bianco */
     overflow-y: auto; /* Aggiunge una scrollbar se necessario */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Ombra sulla destra */
 }
 
 /* Stile di base per i contatti */
@@ -66,8 +65,8 @@ span {
 .message {
     max-width: 80%; /* Imposta la larghezza massima del messaggio */
     margin-bottom: 10px; /* Aggiunge un margine inferiore per separare i messaggi */
-  }
-  
+}
+
 .sent {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -137,6 +136,7 @@ span {
     display: flex; /* Utilizza il layout flessibile */
     align-items: center; /* Centra verticalmente gli elementi */
     padding: 0 10px; /* Spaziatura interna 0 su i lati e 10px sopra e sotto */
+}
 
 input {
     width: 70%;
@@ -156,9 +156,8 @@ button {
     border-radius: 5px; /* Bordo arrotondato */
     cursor: pointer; /* Cambia il cursore al passaggio del mouse */
 }
-}
 
 /* Stile per il blocco della chat */
 .chat {
-margin-top: 80%; /* Margine superiore del 90% rispetto al contenitore padre */
+    margin-top: 80%; /* Margine superiore del 90% rispetto al contenitore padre */
 }

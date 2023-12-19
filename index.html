@@ -2,8 +2,7 @@
 <html>
 <head>
   <!-- Collegamento al foglio di stile CSS -->
-  <link rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <!-- Titolo della pagina -->
   <title>Vue Boolzapp</title>
@@ -15,7 +14,6 @@
       <!-- Contenitore flessibile con due colonne -->
       <div class="container">
         <!-- Colonna 1: Spazio per i contatti -->
-
         <div class="col1 contactspace">
           <!-- Spazio superiore nella colonna dei contatti -->
           <div class="upSpace upSpaceFLex">
@@ -39,13 +37,11 @@
               <!-- Nome del contatto -->
               <span>{{ contact.name }}</span>
             </div>
-         </div>
+          </div>
         </div>
 
-        
         <!-- Colonna 2: Spazio per la conversazione -->
         <div class="col2 chatspace">
-
           <div class="upSpace upSpaceFLex">
             <div class="upSpaceXD">
               <div v-if="selectedContact" class="contact-summary">
@@ -63,19 +59,17 @@
               <i class="fa-solid fa-paperclip"></i>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
-            
           </div>
 
           <!-- Contenitore della conversazione -->
           <div class="chat">
             <!-- Mostra i messaggi se un contatto è selezionato -->
-           <!-- Mostra i messaggi se un contatto è selezionato -->
             <div v-if="selectedContact" class="message" v-for="message in selectedContact.messages" :key="message.date">
               <span :class="{'sent': message.status === 'sent', 'received': message.status === 'received'}">{{ message.message }}</span>
             </div>
-                        <!-- Spazio per scrivere i messaggi -->
-            <div class="writeSpace">
 
+            <!-- Spazio per scrivere i messaggi -->
+            <div class="writeSpace">
               <i class="fa-regular fa-face-smile"></i>
               <input class="writeHere" v-model="newMessage" @keyup.enter="addMessage" placeholder="Type a message...">
               <button @click="addMessage">Send</button>

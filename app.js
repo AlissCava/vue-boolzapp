@@ -192,43 +192,57 @@ const app = createApp({
       newMessage: '',
     };
   },
-  // Proprietà calcolata per filtrare i contatti in base alla query di ricerca
+  // Definizione di una proprietà calcolata chiamata "filteredContacts"
   computed: {
+    // Funzione della proprietà calcolata che restituisce una lista di contatti filtrati in base alla query di ricerca
     filteredContacts() {
+      // Utilizza il metodo filter() per filtrare i contatti in base al nome
       return this.contacts.filter(contact =>
+        // Confronta il nome del contatto (ignorando maiuscole/minuscole) con la query di ricerca
         contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
     },
   },
+
   // Metodi dell'app
   methods: {
     // Funzione per aggiungere un nuovo messaggio
     addMessage() {
+      // Verifica se il campo del nuovo messaggio non è vuoto
       if (this.newMessage.trim() !== '') {
+        // Aggiunge un nuovo messaggio alla lista dei messaggi del contatto selezionato
         this.selectedContact.messages.push({
+          // Ottiene la data e l'ora corrente formattata come stringa
           date: new Date().toLocaleString(),
+          // Estrae il testo del nuovo messaggio, rimuovendo gli spazi iniziali e finali
           message: this.newMessage.trim(),
+          // Imposta lo stato del messaggio come 'sent' (inviato)
           status: 'sent',
         });
-
-        // Simula la risposta dell'interlocutore dopo 1 secondo
-        setTimeout(() => {
-          this.selectedContact.messages.push({
-            date: new Date().toLocaleString(),
-            message: 'Ok',
-            status: 'received',
-          });
-        }, 1000);
-
+  
+      // Funzione setTimeout utilizzata per simulare una risposta dall'interlocutore dopo 1 secondo
+      setTimeout(() => {
+        // Aggiunge un nuovo messaggio alla lista dei messaggi del contatto selezionato
+        this.selectedContact.messages.push({
+          // Ottiene la data e l'ora corrente formattata come stringa
+          date: new Date().toLocaleString(),
+          // Testo del messaggio di risposta simulato
+          message: 'Ok',
+          // Imposta lo stato del messaggio come 'received' (ricevuto)
+          status: 'received',
+        });
+      }, 1000);
+  
         // Pulisci il campo del nuovo messaggio
         this.newMessage = '';
       }
     },
     // Metodo per selezionare un contatto
     selectContact(contact) {
+      // Imposta il contatto selezionato sulla base dell'argomento passato
       this.selectedContact = contact;
     },
-  },
+  },  
 });
 
 // Montaggio dell'app Vue al nodo con l'id "app" nell'HTML
